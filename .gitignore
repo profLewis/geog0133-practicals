@@ -2,6 +2,8 @@
 __pycache__/
 *.py[cod]
 *$py.class
+assimilation_*.png
+test*.png
 
 # C extensions
 *.so
