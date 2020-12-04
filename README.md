@@ -4,6 +4,8 @@
 
 P Lewis & J Gómez-Dans
 
+## Running the practicals
+
 You can run the practicals directly online, thanks to the Binder infrastructure. Here's a link to the whole repository, and individual practicals will be linked below.
 
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/profLewis/geog0133-practicals/master)
