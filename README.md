@@ -1,4 +1,4 @@
-<p><img src="ucl_logo.png?raw=true" align="left" \><img src="https://www.nceo.ac.uk/wp-content/themes/nceo/assets/images/logos/img_logo_purple.svg" align="right" /></p>
+<p><img src="data/ucl_logo.png?raw=true" align="left" \><img src="https://www.nceo.ac.uk/wp-content/themes/nceo/assets/images/logos/img_logo_purple.svg" align="right" /></p>
 
 # GEOG0133 Terrestrial Carbon: modelling and monitoring
 ### P Lewis & J Gómez-Dans
