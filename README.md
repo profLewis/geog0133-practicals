@@ -11,12 +11,12 @@ You can run the practicals directly online, thanks to the Binder infrastructure.
 
 The material for the first practical session comes in two parts: [Simple Earth-like System Models](Simple_Earth_System_Model.ipynb) and [Daisy World](02-DaisyWorld.ipynb).
 
-## Practical 1a: Simple Earth-like System Models
+### Practical 1a: Simple Earth-like System Models
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/profLewis/geog0133-practicals/master?filepath=01-Simple_Earth_System_Model.ipynb)
 
 In the first part, we explore some basic energy balance physics, relating input shortwave radiation and planetary albedo to temperature.
 
-## Practical 1b: Daisy World
+### Practical 1b: Daisy World
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/profLewis/geog0133-practicals/master?filepath=02-DaisyWorld.ipynb)
 
 In the second part, we build components to our energy balance model to achieve [Daisy World](watson_lovelock_1983.pdf) and use this to explore some Earth system concepts.
