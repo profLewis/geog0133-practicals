@@ -1,7 +1,8 @@
 <p><img src="figures/ucl_logo.png?raw=true" align="left" \><img src="https://www.nceo.ac.uk/wp-content/themes/nceo/assets/images/logos/img_logo_purple.svg" align="right" /></p>
 
-# GEOG0133 Terrestrial Carbon: modelling and monitoring
-### P Lewis & J Gómez-Dans
+# GEOG0133 Terrestrial Carbon: modelling and monitoring practical exercises
+
+P Lewis & J Gómez-Dans
 
 You can run the practicals directly online, thanks to the Binder infrastructure. Here's a link to the whole repository, and individual practicals will be linked below.
 
