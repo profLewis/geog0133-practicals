@@ -22,7 +22,7 @@ In the first part, we explore some basic energy balance physics, relating input 
 ### Practical 1b: Daisy World
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/profLewis/geog0133-practicals/master?filepath=02-DaisyWorld.ipynb)
 
-In the second part, we build components to our energy balance model to achieve [Daisy World](watson_lovelock_1983.pdf) and use this to explore some Earth system concepts.
+In the second part, we add 'life' to our energy balance model to achieve [Daisy World](watson_lovelock_1983.pdf) and use this to explore some Earth system concepts.
 
 ## Practical 2: Photosynthesis modelling
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/profLewis/geog0133-practicals/master?filepath=03-Photosynthesis_Modelling_Practical.ipynb)
