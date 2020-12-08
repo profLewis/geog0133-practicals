@@ -4,6 +4,7 @@ __pycache__/
 *$py.class
 assimilation_*.png
 test*.png
+photter*png
 
 # C extensions
 *.so

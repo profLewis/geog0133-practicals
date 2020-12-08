@@ -418,8 +418,8 @@ class photosynthesis():
         self.Wc[self.Wc<0] = 0.
 
         self.Wl = self.alpha*(1-self.omega)*self.Ipar
-        self.Wl[c3]  = self.alpha*(1-self.omega)*self.Ipar\
-                       * ((self.ci-self.Gamma)/(self.ci+2.*self.Gamma))[c3]
+        self.Wl[c3]  = (self.alpha*(1-self.omega)*self.Ipar\
+                       * ((self.ci-self.Gamma)/(self.ci+2.*self.Gamma)))[c3]
         self.Wl[self.Wl<0] = 0.
 
         self.We = 0.5 * self.Vcmax
