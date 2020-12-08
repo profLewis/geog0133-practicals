@@ -88,3 +88,57 @@ def plotme(x,photo,plotter):
     plotter['subplot'] += 1
     return plotter
 
+
+def day_plot(jd,ipar,Tc,p,title=None):
+    '''
+    Plot assimilation over the day
+    
+    Inputs:
+    jd:   day of year (including fraction of day)
+    ipar: incident PAR (u mol(photons) / (m^2 s))
+    Tc:   surface Temperature
+    p:     photosynthesis object
+    
+    Keywords:
+    title: plot super title
+    '''
+
+    fig,axs = plt.subplots( 2, 2, figsize=(10,10))
+    fig.suptitle(title)
+ 
+    # assume PAR is 50% of downwelling radiation
+    # and atmospheric optical thickness of PAR is 0.2
+    # we multiply by cos(solar zenith) here to project
+    # onto a flat surface (a 'big leaf')
+
+
+    axs[0,1].plot(jd,ipar, '-')
+    axs[0,1].set_ylabel('$PAR_{inc}\,\sim$ $\mu mol\, photons/ (m^2 s))$')
+    axs[0,1].set_xlabel("Fraction of day")
+    axs[0,1].set_xlim(0,1)
+    
+    axs[0,0].plot(jd, Tc, '-')
+    axs[0,0].set_ylabel("$T_c$ (C)")
+    axs[0,0].set_xlabel("Fraction of day")
+    axs[0,0].set_xlim(0,1)
+
+    
+    # now plot Al + Rd over the day
+    axs[1,0].plot(jd,(p.Al+p.Rd)*1.e6, '-')
+    axs[1,0].set_ylabel('Assim rate $[\mu mol\, m^{-2} s^{-1}]$')
+    axs[1,0].set_xlabel("Fraction of day")
+    axs[1,0].set_xlim(0,1)
+
+    # now plot W terms over the day
+    axs[1,1].plot( jd, p.Wc * 1e6,label='Wc')
+    axs[1,1].plot( jd, p.Ws * 1e6,label='Ws')
+    axs[1,1].plot( jd, p.We * 1e6,label='We')
+    axs[1,1].plot( jd, p.W * 1e6,label='W')
+    axs[1,1].plot( jd, p.Al* 1e6,label='Al')
+    axs[1,1].plot( jd, p.Rd* 1e6,label='Rd')
+
+    axs[1,1].set_ylabel('Assim rate factors $[\mu mol\, m^{-2} s^{-1}]$')
+    axs[1,1].set_xlabel("Fraction of day")
+    axs[1,1].set_xlim(0,1)
+    axs[1,1].legend(loc='upper right')
+
