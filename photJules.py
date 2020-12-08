@@ -62,7 +62,7 @@ class photosynthesis():
         
         plt.clf()
         plt.plot(self.Tc,self.Wc * 1e6,label='Wc')
-        plt.plot(self.Tc,self.Wl * 1e6,label='Wl')
+        plt.plot(self.Tc,self.Ws * 1e6,label='Ws')
         plt.plot(self.Tc,self.We * 1e6,label='We')
         plt.plot(self.Tc,self.W * 1e6,label='W')
         plt.legend()
@@ -382,10 +382,10 @@ class photosynthesis():
             self.Ko      : Michaelis-Menten paramemeter for O2
             self.ci      : leaf internal CO2 partial pressure (Pa)
             self.Wc      : Rubisco-limited rate
-            self.Wl      : Light-limited rate
-            self.We      : Rate of transport of photosynthetic products
+            self.We      : Light-limited rate
+            self.Ws      : Rate of transport of photosynthetic products
 
-            self.Wp      : Wc/Wl smoothed term
+            self.Wp      : Wc/We smoothed term
 
             self.W       : combined limiting rate
             self.Rd      : leaf dark respiration
@@ -417,23 +417,23 @@ class photosynthesis():
         self.Wc[c3] = self.Vcmax[c3] * ((self.ci-self.Gamma)/(self.ci+self.Kc*(1+self.Oa/self.Ko)))[c3]
         self.Wc[self.Wc<0] = 0.
 
-        self.Wl = self.alpha*(1-self.omega)*self.Ipar
-        self.Wl[c3]  = (self.alpha*(1-self.omega)*self.Ipar\
+        self.We = self.alpha*(1-self.omega)*self.Ipar
+        self.We[c3]  = (self.alpha*(1-self.omega)*self.Ipar\
                        * ((self.ci-self.Gamma)/(self.ci+2.*self.Gamma)))[c3]
-        self.Wl[self.Wl<0] = 0.
-
-        self.We = 0.5 * self.Vcmax
-        self.We[c4] = (2.e4 * self.Vcmax * self.ci/self.pstar)[c4]
         self.We[self.We<0] = 0.
 
+        self.Ws = 0.5 * self.Vcmax
+        self.Ws[c4] = (2.e4 * self.Vcmax * self.ci/self.pstar)[c4]
+        self.Ws[self.Ws<0] = 0.
+
         b1 = self.beta1*np.ones_like(self.data)
-        b2 = -(self.Wc+self.Wl)
-        b3 = self.Wc*self.Wl
+        b2 = -(self.Wc+self.We)
+        b3 = self.Wc*self.We
         self.Wp = (-b2/(2.*b1) - np.sqrt(b2*b2/(4*b1*b1) - b3/b1))/self.beta1
 
         b1 = self.beta2*np.ones_like(self.data)
-        b2 = -(self.Wp+self.We)
-        b3 = self.Wp*self.We
+        b2 = -(self.Wp+self.Ws)
+        b3 = self.Wp*self.Ws
         self.W = -b2/(2.*b1) - np.sqrt(b2*b2/(4*b1*b1) - b3/b1)
 
         self.Rd = self.fdr * self.Vcmax

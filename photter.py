@@ -58,13 +58,13 @@ def plotme(x,photo,plotter):
     if plotter['ymax']:
       axs[i].set_ylim(None,plotter['ymax'])
     axs[i].plot( x, photo.Wc * 1e6,label='Wc')
-    axs[i].plot( x, photo.Wl * 1e6,label='Wl')
+    axs[i].plot( x, photo.Ws * 1e6,label='Ws')
     axs[i].plot( x, photo.We * 1e6,label='We')
     axs[i].plot( x, photo.W * 1e6,label='W')
     axs[i].plot( x, photo.Al* 1e6,label='Al')
     axs[i].plot( x, photo.Rd* 1e6,label='Rd')
 
-    axs[i].set_ylabel('Assimilation rate $(\mu mol\, CO_2 m^{-1} s^{-1})$', fontsize=10)
+    axs[i].set_ylabel('Assimilation rate $(\mu mol\, CO_2 m^{-2} s^{-1})$', fontsize=10)
     if plotter['xlabel'] is None:
         axs[i].set_xlabel('Temperature (C)', fontsize=10)
     else:
