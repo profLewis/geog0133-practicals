@@ -123,11 +123,13 @@ def day_plot(jd,ipar,Tc,p,title=None):
     axs[0,0].set_xlim(0,1)
 
     
-    # now plot Al + Rd over the day
-    axs[1,0].plot(jd,(p.Al+p.Rd)*1.e6, '-')
-    axs[1,0].set_ylabel('Assim rate $[\mu mol\, m^{-2} s^{-1}]$')
+    # now plot Al  over the day
+    axs[1,0].plot(jd,(p.Al)*1.e6, '-',label="Al")
+    axs[1,0].plot(jd,(p.Rd)*1.e6, '-',label="Rd")
+    axs[1,0].set_ylabel('Assim/Respiration rate $[\mu mol\, m^{-2} s^{-1}]$')
     axs[1,0].set_xlabel("Fraction of day")
     axs[1,0].set_xlim(0,1)
+    axs[1,0].legend(loc='upper right')
 
     # now plot W terms over the day
     axs[1,1].plot( jd, p.Wc * 1e6,label='Wc')
