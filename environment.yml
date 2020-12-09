@@ -65,4 +65,5 @@ dependencies:
     - mkdocs-material
     - mkdocs-exclude
     - mkdocs-git-revision-date-localized-plugin
+    - climt
 # python -m ipykernel install --name=conda-env-geog0111-geog0111-py --display-name 'conda env:geog0111-geog0111'

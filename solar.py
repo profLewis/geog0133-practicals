@@ -3,11 +3,14 @@ import itertools
 import numpy as np
 
 import scipy.constants
+from datetime import datetime
+from datetime import timedelta
+
 
 def solar_model(secs, mins, hours, days, months, years, lats, longs, 
-                julian_offset='2012/1/1'):
+                julian_offset='2000/1/1'):
     """A function that calculates the solar zenith angle (sza, in
-    degrees), the Earth-Sun distance (in AU?), and the instantaneous 
+    degrees), the Earth-Sun distance (in AU), and the instantaneous 
     downwelling solar radiation in mol(photons) per square meter per
     second for a set of time(s) and geographical locations. """
     solar_constant = 1361. #W/m2
@@ -50,11 +53,10 @@ def solar_model(secs, mins, hours, days, months, years, lats, longs,
         this_sza = 90. - solar_altitude
         this_distance_earth_sun = solar_position.earth_distance
         jd = ephem.julian_date(f'{year:04d}/{month:d}/{day:d}') - julian_offset
-        jd += hour/24. + minute/60./24. + second/(3600*24)
+        jd += hour/24. + minute/60./24. + second/(3600*24) + 1
         julian_day.append(jd)
         sza.append(this_sza)
         earth_sun_distance.append(this_distance_earth_sun)
-        
     
     julian_day = np.array(julian_day)
     sza = np.array(sza)
